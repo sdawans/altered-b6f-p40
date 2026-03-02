@@ -12,6 +12,7 @@ export function renderHeroStats(globalStats, heroList, heroes, factions) {
     const s = globalStats.heroStats[h.id] || { picks: 0, wins: 0, losses: 0, pending: 0 };
     if (s.picks === 0) return '';
     const f = factions[h.faction];
+    if (!f) return '';
     const decided = s.wins + s.losses;
     const winRate = decided > 0 ? ((s.wins / decided) * 100).toFixed(0) : '—';
     const barWidth = decided > 0 ? (s.wins / decided) * 100 : 0;

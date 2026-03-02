@@ -13,7 +13,7 @@ export function renderPlayer(playerId, standings, factionList, factions, heroes,
     const won = stat.factionWins[f.id];
     const played = stat.factionPlayed[f.id];
     const pending = stat.matches.some(m => m.faction === f.id && m.result === 'pending');
-    const wonState = won ? true : pending ? null : played ? false : null;
+    const wonState = won ? true : pending ? null : false;
     return factionBadge(f, { size: 'lg', showName: true, won: wonState });
   }).join('');
 
