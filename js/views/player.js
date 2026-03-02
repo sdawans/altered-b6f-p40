@@ -1,4 +1,4 @@
-import { factionBadge, escapeHtml } from '../ui.js';
+import { factionBadge, escapeHtml } from '../ui.js?v=2';
 
 export function renderPlayer(playerId, standings, factionList, factions, onBack) {
   const stat = standings.find(s => s.id === playerId);

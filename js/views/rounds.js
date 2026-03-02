@@ -1,4 +1,4 @@
-import { factionBadge, escapeHtml } from '../ui.js';
+import { factionBadge, escapeHtml } from '../ui.js?v=2';
 
 let activeRound = null;
 

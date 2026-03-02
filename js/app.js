@@ -1,9 +1,9 @@
-import { loadTournamentData } from './data.js';
-import { renderStandings } from './views/standings.js';
-import { renderConquest } from './views/conquest.js';
-import { renderRounds } from './views/rounds.js';
-import { renderPlayer } from './views/player.js';
-import { renderInfo } from './views/info.js';
+import { loadTournamentData } from './data.js?v=2';
+import { renderStandings } from './views/standings.js?v=2';
+import { renderConquest } from './views/conquest.js?v=2';
+import { renderRounds } from './views/rounds.js?v=2';
+import { renderPlayer } from './views/player.js?v=2';
+import { renderInfo } from './views/info.js?v=2';
 
 let data = null;
 let currentTab = 'standings';

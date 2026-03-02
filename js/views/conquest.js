@@ -1,4 +1,4 @@
-import { factionBadge, escapeHtml } from '../ui.js';
+import { factionBadge, escapeHtml } from '../ui.js?v=2';
 
 export function renderConquest(standings, factionList, factions) {
   const factionHeaders = factionList.map(f =>
