@@ -37,7 +37,7 @@ function renderHeader() {
   const inProgress = data.rounds.some(r => r.status === 'in_progress');
   const currentRound = inProgress ? completedRounds + 1 : completedRounds;
 
-  document.getElementById('header-subtitle').textContent = t.subtitle;
+  document.getElementById('header-subtitle').innerHTML = `BWAT • ${t.subtitle}`;
   document.getElementById('header-title').textContent = t.name;
 
   const metaHtml = `

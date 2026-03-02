@@ -54,7 +54,7 @@ export function renderRounds(rounds, totalRounds, playerMap, factions, onSelectP
             <span class="match-card__name ${p1NameCls}">${escapeHtml(p1.name)}${p1Star}</span>
             ${factionBadge(f1, { size: 'sm', won: p1Won ? true : p2Won ? false : null })}
           </div>
-          <span class="match-card__vs">${pending ? 'vs' : 'def.'}</span>
+          <span class="match-card__vs">vs</span>
           <div class="match-card__player match-card__player--right" data-player-id="${p2.id}">
             ${factionBadge(f2, { size: 'sm', won: p2Won ? true : p1Won ? false : null })}
             <span class="match-card__name ${p2NameCls}">${p2Star}${escapeHtml(p2.name)}</span>
