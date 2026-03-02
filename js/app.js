@@ -1,0 +1,115 @@
+import { loadTournamentData } from './data.js';
+import { renderStandings } from './views/standings.js';
+import { renderConquest } from './views/conquest.js';
+import { renderRounds } from './views/rounds.js';
+import { renderPlayer } from './views/player.js';
+import { renderInfo } from './views/info.js';
+
+let data = null;
+let currentTab = 'standings';
+let selectedPlayer = null;
+
+// ─── INIT ──────────────────────────────────────────────────────
+
+async function init() {
+  try {
+    data = await loadTournamentData();
+  } catch (err) {
+    document.getElementById('content').innerHTML =
+      `<div style="text-align:center;padding:60px;color:var(--loss)">
+        Failed to load tournament data. Make sure JSON files are in the data/ folder.
+        <br><small style="color:var(--text-muted)">${err.message}</small>
+      </div>`;
+    return;
+  }
+
+  renderHeader();
+  bindTabs();
+  render();
+}
+
+// ─── HEADER ────────────────────────────────────────────────────
+
+function renderHeader() {
+  const t = data.tournament;
+  const activePlayers = data.players.filter(p => p.status === 'active').length;
+  const completedRounds = data.rounds.filter(r => r.status === 'completed').length;
+  const inProgress = data.rounds.some(r => r.status === 'in_progress');
+  const currentRound = inProgress ? completedRounds + 1 : completedRounds;
+
+  document.getElementById('header-subtitle').textContent = t.subtitle;
+  document.getElementById('header-title').textContent = t.name;
+
+  const metaHtml = `
+    <span>${activePlayers} active players</span>
+    <span>•</span>
+    <span>Round ${currentRound} / ${t.totalRounds}</span>
+    ${inProgress ? '<span class="header__live">● In Progress</span>' : ''}
+  `;
+  document.getElementById('header-meta').innerHTML = metaHtml;
+}
+
+// ─── TABS ──────────────────────────────────────────────────────
+
+function bindTabs() {
+  document.querySelectorAll('.tabs__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentTab = btn.dataset.tab;
+      selectedPlayer = null;
+      updateTabStyles();
+      render();
+    });
+  });
+}
+
+function updateTabStyles() {
+  document.querySelectorAll('.tabs__btn').forEach(btn => {
+    btn.classList.toggle('tabs__btn--active', btn.dataset.tab === currentTab);
+  });
+}
+
+// ─── RENDER ────────────────────────────────────────────────────
+
+function render() {
+  if (!data) return;
+
+  const { tournament, players, rounds, factions, standings } = data;
+  const factionList = tournament.factions;
+  const playerMap = Object.fromEntries(players.map(p => [p.id, p]));
+
+  if (selectedPlayer) {
+    document.querySelector('.tabs').style.display = 'none';
+    renderPlayer(selectedPlayer, standings, factionList, factions, () => {
+      selectedPlayer = null;
+      document.querySelector('.tabs').style.display = '';
+      render();
+    });
+    return;
+  }
+
+  document.querySelector('.tabs').style.display = '';
+
+  switch (currentTab) {
+    case 'standings':
+      renderStandings(standings, factions, selectPlayer);
+      break;
+    case 'conquest':
+      renderConquest(standings, factionList, factions);
+      break;
+    case 'rounds':
+      renderRounds(rounds, tournament.totalRounds, playerMap, factions, selectPlayer);
+      break;
+    case 'info':
+      renderInfo(tournament, factionList);
+      break;
+  }
+}
+
+function selectPlayer(playerId) {
+  selectedPlayer = playerId;
+  render();
+}
+
+// ─── BOOT ──────────────────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', init);

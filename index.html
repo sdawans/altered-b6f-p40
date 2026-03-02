@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Altered TCG Tournament</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header__subtitle" id="header-subtitle"></div>
+      <h1 class="header__title" id="header-title"></h1>
+      <div class="header__meta" id="header-meta"></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tabs__btn tabs__btn--active" data-tab="standings">Standings</button>
+      <button class="tabs__btn" data-tab="conquest">Faction Conquest</button>
+      <button class="tabs__btn" data-tab="rounds">Rounds</button>
+      <button class="tabs__btn" data-tab="info">Info</button>
+    </div>
+
+    <!-- Dynamic content -->
+    <div id="content">
+      <div style="text-align:center;padding:60px;color:var(--text-muted)">Loading tournament data…</div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

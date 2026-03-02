@@ -1,0 +1,28 @@
+{
+  "name": "Padawan's 40th Birthday Special",
+  "subtitle": "Turn-Based (1 week) • No-Unique • Faction Conquest",
+  "totalRounds": 6,
+  "format": "No-Unique",
+  "platform": "Board Game Arena",
+  "turnTime": "3.5 days per turn",
+  "factions": [
+    { "id": "axiom", "name": "Axiom", "color": "#cd7f32", "bg": "#3d2a15", "bannedHero": "Treyst" },
+    { "id": "bravos", "name": "Bravos", "color": "#ef4444", "bg": "#5f1e1e", "bannedHero": "Kojo" },
+    { "id": "lyra", "name": "Lyra", "color": "#ec4899", "bg": "#5f1e3a", "bannedHero": "Fen" },
+    { "id": "muna", "name": "Muna", "color": "#22c55e", "bg": "#1e5f2a", "bannedHero": "Rin" },
+    { "id": "ordis", "name": "Ordis", "color": "#3b82f6", "bg": "#1e2a5f", "bannedHero": "Sigismar" },
+    { "id": "yzmir", "name": "Yzmir", "color": "#a855f7", "bg": "#3f1e5f", "bannedHero": "Akesha" }
+  ],
+  "prizes": [
+    { "rank": "1st", "prize": "5 boosters" },
+    { "rank": "2nd", "prize": "4 boosters" },
+    { "rank": "3rd-4th", "prize": "3 boosters" },
+    { "rank": "5th-6th", "prize": "2 boosters" },
+    { "rank": "7th-11th", "prize": "1 booster" }
+  ],
+  "lottery": {
+    "prize": "Two custom 3D-printed token boxes (free EU shipping)",
+    "ticketsForCompletion": 1,
+    "ticketsForAllFactions": 3
+  }
+}
