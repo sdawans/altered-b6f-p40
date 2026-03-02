@@ -4,6 +4,9 @@ import { renderConquest } from './views/conquest.js?v=2';
 import { renderRounds } from './views/rounds.js?v=2';
 import { renderPlayer } from './views/player.js?v=2';
 import { renderInfo } from './views/info.js?v=2';
+import { renderFactionStats } from './views/factionStats.js?v=2';
+import { renderHeroStats } from './views/heroStats.js?v=2';
+import { renderMatchupStats } from './views/matchupStats.js?v=2';
 
 let data = null;
 let currentTab = 'standings';
@@ -73,13 +76,14 @@ function updateTabStyles() {
 function render() {
   if (!data) return;
 
-  const { tournament, players, rounds, factions, standings } = data;
+  const { tournament, players, rounds, factions, heroes, standings, globalStats } = data;
   const factionList = tournament.factions;
+  const heroList = tournament.heroes;
   const playerMap = Object.fromEntries(players.map(p => [p.id, p]));
 
   if (selectedPlayer) {
     document.querySelector('.tabs').style.display = 'none';
-    renderPlayer(selectedPlayer, standings, factionList, factions, () => {
+    renderPlayer(selectedPlayer, standings, factionList, factions, heroes, () => {
       selectedPlayer = null;
       document.querySelector('.tabs').style.display = '';
       render();
@@ -97,7 +101,16 @@ function render() {
       renderConquest(standings, factionList, factions);
       break;
     case 'rounds':
-      renderRounds(rounds, tournament.totalRounds, playerMap, factions, selectPlayer);
+      renderRounds(rounds, tournament.totalRounds, playerMap, factions, heroes, selectPlayer);
+      break;
+    case 'factionStats':
+      renderFactionStats(globalStats, factionList, factions);
+      break;
+    case 'heroStats':
+      renderHeroStats(globalStats, heroList, heroes, factions);
+      break;
+    case 'matchups':
+      renderMatchupStats(globalStats, factionList, factions);
       break;
     case 'info':
       renderInfo(tournament, factionList);

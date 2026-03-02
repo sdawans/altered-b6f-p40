@@ -216,6 +216,59 @@ table { border-collapse: collapse; }
 .faction-badge__icon--md { width: 28px; height: 28px; font-size: 11px; }
 .faction-badge__icon--lg { width: 36px; height: 36px; font-size: 13px; }
 
+/* ─── HERO BADGE ───────────────────────────────────────────── */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hero-badge--dimmed { opacity: 0.45; }
+
+.hero-badge__img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid;
+}
+
+.hero-badge__img--sm { width: 24px; height: 24px; }
+.hero-badge__img--md { width: 32px; height: 32px; }
+.hero-badge__img--lg { width: 44px; height: 44px; }
+
+/* ─── STAT BAR ─────────────────────────────────────────────── */
+.stat-bar {
+  height: 8px;
+  background: #1a1a2e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stat-bar__fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+/* ─── MATCHUP GRID ─────────────────────────────────────────── */
+.matchup__cell {
+  text-align: center;
+  padding: 8px 6px;
+  font-size: 13px;
+  border: 1px solid var(--border);
+}
+
+.matchup__cell--self {
+  background: #0a0a15;
+  color: var(--text-dim);
+}
+
+.matchup__cell--empty {
+  color: var(--text-dim);
+}
+
 /* ─── CONQUEST GRID ─────────────────────────────────────────── */
 .conquest { overflow-x: auto; }
 

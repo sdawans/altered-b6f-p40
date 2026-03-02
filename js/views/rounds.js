@@ -1,9 +1,8 @@
-import { factionBadge, escapeHtml } from '../ui.js?v=2';
+import { heroBadge, escapeHtml } from '../ui.js?v=2';
 
 let activeRound = null;
 
-export function renderRounds(rounds, totalRounds, playerMap, factions, onSelectPlayer) {
-  // Default to latest available round
+export function renderRounds(rounds, totalRounds, playerMap, factions, heroes, onSelectPlayer) {
   if (activeRound === null) {
     activeRound = rounds.length > 0 ? rounds.length : 1;
   }
@@ -45,18 +44,20 @@ export function renderRounds(rounds, totalRounds, playerMap, factions, onSelectP
       const p1Star = p1Won ? '<span class="match-card__star">★</span>' : '';
       const p2Star = p2Won ? '<span class="match-card__star">★</span>' : '';
 
-      const f1 = factions[m.player1.faction];
-      const f2 = factions[m.player2.faction];
+      const h1 = heroes[m.player1.hero];
+      const h2 = heroes[m.player2.hero];
+      const f1 = h1 ? factions[h1.faction] : null;
+      const f2 = h2 ? factions[h2.faction] : null;
 
       return `
         <div class="${cardCls}">
           <div class="match-card__player" data-player-id="${p1.id}">
             <span class="match-card__name ${p1NameCls}">${escapeHtml(p1.name)}${p1Star}</span>
-            ${factionBadge(f1, { size: 'sm', won: p1Won ? true : p2Won ? false : null })}
+            ${heroBadge(h1, f1, { size: 'sm', showName: true, won: p1Won ? true : p2Won ? false : null })}
           </div>
           <span class="match-card__vs">vs</span>
           <div class="match-card__player match-card__player--right" data-player-id="${p2.id}">
-            ${factionBadge(f2, { size: 'sm', won: p2Won ? true : p1Won ? false : null })}
+            ${heroBadge(h2, f2, { size: 'sm', showName: true, won: p2Won ? true : p1Won ? false : null })}
             <span class="match-card__name ${p2NameCls}">${p2Star}${escapeHtml(p2.name)}</span>
           </div>
         </div>
@@ -74,15 +75,13 @@ export function renderRounds(rounds, totalRounds, playerMap, factions, onSelectP
     </div>
   `;
 
-  // Bind round tab clicks
   container.querySelectorAll('.round-tab:not([disabled])').forEach(btn => {
     btn.addEventListener('click', () => {
       activeRound = parseInt(btn.dataset.round);
-      renderRounds(rounds, totalRounds, playerMap, factions, onSelectPlayer);
+      renderRounds(rounds, totalRounds, playerMap, factions, heroes, onSelectPlayer);
     });
   });
 
-  // Bind player clicks
   container.querySelectorAll('.match-card__player[data-player-id]').forEach(el => {
     el.addEventListener('click', () => onSelectPlayer(el.dataset.playerId));
   });

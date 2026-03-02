@@ -1,6 +1,6 @@
-import { factionBadge, escapeHtml } from '../ui.js?v=2';
+import { factionBadge, heroBadge, escapeHtml } from '../ui.js?v=2';
 
-export function renderPlayer(playerId, standings, factionList, factions, onBack) {
+export function renderPlayer(playerId, standings, factionList, factions, heroes, onBack) {
   const stat = standings.find(s => s.id === playerId);
   if (!stat) return;
 
@@ -19,8 +19,10 @@ export function renderPlayer(playerId, standings, factionList, factions, onBack)
 
   const matchRows = stat.matches.map(m => {
     const opp = playerMap[m.opponent];
-    const f = factions[m.faction];
-    const opF = factions[m.opFaction];
+    const h = heroes[m.hero];
+    const opH = heroes[m.opHero];
+    const f = h ? factions[h.faction] : null;
+    const opF = opH ? factions[opH.faction] : null;
     const cls = `match-row match-row--${m.result}`;
     const resCls = `match-row__result match-row__result--${m.result}`;
     const resLabel = m.result === 'win' ? 'WIN' : m.result === 'loss' ? 'LOSS' : 'LIVE';
@@ -29,9 +31,9 @@ export function renderPlayer(playerId, standings, factionList, factions, onBack)
       <div class="${cls}">
         <span class="match-row__round">R${m.round}</span>
         <span class="${resCls}">${resLabel}</span>
-        ${factionBadge(f, { size: 'sm', showName: true })}
+        ${heroBadge(h, f, { size: 'sm', showName: true })}
         <span class="match-row__vs">vs</span>
-        ${factionBadge(opF, { size: 'sm' })}
+        ${heroBadge(opH, opF, { size: 'sm', showName: true })}
         <span class="match-row__opponent">${opp ? escapeHtml(opp.name) : 'Unknown'}</span>
       </div>
     `;
