@@ -1,5 +1,96 @@
 {
   "round": 1,
-  "status": "upcoming",
-  "matches": []
+  "status": "in_progress",
+  "matches": [
+    {
+      "player1": { "id": "p07", "faction": "bravos" },
+      "player2": { "id": "p15", "faction": "muna" },
+      "winner": "p07"
+    },
+    {
+      "player1": { "id": "p17", "faction": "yzmir" },
+      "player2": { "id": "p14", "faction": "muna" },
+      "winner": "p17"
+    },
+    {
+      "player1": { "id": "p32", "faction": "yzmir" },
+      "player2": { "id": "p26", "faction": "lyra" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p23", "faction": "muna" },
+      "player2": { "id": "p30", "faction": "ordis" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p25", "faction": "lyra" },
+      "player2": { "id": "p27", "faction": "axiom" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p08", "faction": "muna" },
+      "player2": { "id": "p16", "faction": "axiom" },
+      "winner": "p08"
+    },
+    {
+      "player1": { "id": "p04", "faction": "yzmir" },
+      "player2": { "id": "p13", "faction": "yzmir" },
+      "winner": "p04"
+    },
+    {
+      "player1": { "id": "p29", "faction": "axiom" },
+      "player2": { "id": "p22", "faction": "yzmir" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p06", "faction": "yzmir" },
+      "player2": { "id": "p09", "faction": "yzmir" },
+      "winner": "p06"
+    },
+    {
+      "player1": { "id": "p03", "faction": "bravos" },
+      "player2": { "id": "p12", "faction": "muna" },
+      "winner": "p03"
+    },
+    {
+      "player1": { "id": "p36", "faction": null },
+      "player2": { "id": "p33", "faction": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p20", "faction": "axiom" },
+      "player2": { "id": "p19", "faction": "yzmir" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p05", "faction": "muna" },
+      "player2": { "id": "p10", "faction": "muna" },
+      "winner": "p05"
+    },
+    {
+      "player1": { "id": "p31", "faction": null },
+      "player2": { "id": "p35", "faction": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p34", "faction": null },
+      "player2": { "id": "p28", "faction": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p01", "faction": "yzmir" },
+      "player2": { "id": "p11", "faction": "muna" },
+      "winner": "p01"
+    },
+    {
+      "player1": { "id": "p02", "faction": "bravos" },
+      "player2": { "id": "p18", "faction": "bravos" },
+      "winner": "p02"
+    },
+    {
+      "player1": { "id": "p24", "faction": null },
+      "player2": { "id": "p21", "faction": null },
+      "winner": null
+    }
+  ]
 }

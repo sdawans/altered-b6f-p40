@@ -7,6 +7,7 @@ export function renderInfo(tournament, factionList) {
 
   const bannedHeroes = factionList.map(f =>
     `<div class="banned-hero">
+      <img class="banned-hero__img" src="img/heroes/${f.bannedHero.toLowerCase()}.webp" alt="${f.bannedHero}">
       ${factionBadge(f, { size: 'sm' })}
       <span class="banned-hero__name">${f.bannedHero}</span>
     </div>`

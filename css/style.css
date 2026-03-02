@@ -521,6 +521,15 @@ table { border-collapse: collapse; }
   font-size: 13px;
 }
 
+.banned-hero__img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3a1a1a;
+  filter: grayscale(0.3);
+}
+
 .banned-hero__name {
   color: var(--loss);
   font-weight: 600;

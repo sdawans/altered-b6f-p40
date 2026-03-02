@@ -65,30 +65,33 @@ function computeStandings(players, rounds, factions) {
       p1.opponents.push(m.player2.id);
       p2.opponents.push(m.player1.id);
 
-      p1.factionPlayed[m.player1.faction] = (p1.factionPlayed[m.player1.faction] || 0) + 1;
-      p2.factionPlayed[m.player2.faction] = (p2.factionPlayed[m.player2.faction] || 0) + 1;
+      const f1 = m.player1.faction;
+      const f2 = m.player2.faction;
 
-      const mi1 = { round: round.round, opponent: m.player2.id, faction: m.player1.faction, opFaction: m.player2.faction, result: null };
-      const mi2 = { round: round.round, opponent: m.player1.id, faction: m.player2.faction, opFaction: m.player1.faction, result: null };
+      if (f1) p1.factionPlayed[f1] = (p1.factionPlayed[f1] || 0) + 1;
+      if (f2) p2.factionPlayed[f2] = (p2.factionPlayed[f2] || 0) + 1;
+
+      const mi1 = { round: round.round, opponent: m.player2.id, faction: f1, opFaction: f2, result: null };
+      const mi2 = { round: round.round, opponent: m.player1.id, faction: f2, opFaction: f1, result: null };
 
       if (m.winner === m.player1.id) {
         p1.wins++; p1.points += 3;
-        p1.factionWins[m.player1.faction] = true;
+        if (f1) p1.factionWins[f1] = true;
         p2.losses++;
-        p2.factionLosses[m.player2.faction] = (p2.factionLosses[m.player2.faction] || 0) + 1;
+        if (f2) p2.factionLosses[f2] = (p2.factionLosses[f2] || 0) + 1;
         mi1.result = 'win';
         mi2.result = 'loss';
       } else if (m.winner === m.player2.id) {
         p2.wins++; p2.points += 3;
-        p2.factionWins[m.player2.faction] = true;
+        if (f2) p2.factionWins[f2] = true;
         p1.losses++;
-        p1.factionLosses[m.player1.faction] = (p1.factionLosses[m.player1.faction] || 0) + 1;
+        if (f1) p1.factionLosses[f1] = (p1.factionLosses[f1] || 0) + 1;
         mi1.result = 'loss';
         mi2.result = 'win';
       } else {
         // Pending (winner is null)
-        p1.factionPending[m.player1.faction] = true;
-        p2.factionPending[m.player2.faction] = true;
+        if (f1) p1.factionPending[f1] = true;
+        if (f2) p2.factionPending[f2] = true;
         mi1.result = 'pending';
         mi2.result = 'pending';
       }
