@@ -3,93 +3,93 @@
   "status": "in_progress",
   "matches": [
     {
-      "player1": { "id": "p07", "faction": "bravos" },
-      "player2": { "id": "p15", "faction": "muna" },
+      "player1": { "id": "p07", "hero": "sol" },
+      "player2": { "id": "p15", "hero": "turuun" },
       "winner": "p07"
     },
     {
-      "player1": { "id": "p17", "faction": "yzmir" },
-      "player2": { "id": "p14", "faction": "muna" },
+      "player1": { "id": "p17", "hero": "afanas" },
+      "player2": { "id": "p14", "hero": "teija" },
       "winner": "p17"
     },
     {
-      "player1": { "id": "p32", "faction": "yzmir" },
-      "player2": { "id": "p26", "faction": "lyra" },
+      "player1": { "id": "p32", "hero": "afanas" },
+      "player2": { "id": "p26", "hero": "auraq" },
       "winner": null
     },
     {
-      "player1": { "id": "p23", "faction": "muna" },
-      "player2": { "id": "p30", "faction": "ordis" },
+      "player1": { "id": "p23", "hero": "teija" },
+      "player2": { "id": "p30", "hero": "zhen" },
       "winner": null
     },
     {
-      "player1": { "id": "p25", "faction": "lyra" },
-      "player2": { "id": "p27", "faction": "axiom" },
+      "player1": { "id": "p25", "hero": "auraq" },
+      "player2": { "id": "p27", "hero": "sierra" },
       "winner": null
     },
     {
-      "player1": { "id": "p08", "faction": "muna" },
-      "player2": { "id": "p16", "faction": "axiom" },
+      "player1": { "id": "p08", "hero": "kauri" },
+      "player2": { "id": "p16", "hero": "sierra" },
       "winner": "p08"
     },
     {
-      "player1": { "id": "p04", "faction": "yzmir" },
-      "player2": { "id": "p13", "faction": "yzmir" },
+      "player1": { "id": "p04", "hero": "lindiwe" },
+      "player2": { "id": "p13", "hero": "afanas" },
       "winner": "p04"
     },
     {
-      "player1": { "id": "p29", "faction": "axiom" },
-      "player2": { "id": "p22", "faction": "yzmir" },
+      "player1": { "id": "p29", "hero": "della" },
+      "player2": { "id": "p22", "hero": "lindiwe" },
       "winner": null
     },
     {
-      "player1": { "id": "p06", "faction": "yzmir" },
-      "player2": { "id": "p09", "faction": "yzmir" },
+      "player1": { "id": "p06", "hero": "lindiwe" },
+      "player2": { "id": "p09", "hero": "afanas" },
       "winner": "p06"
     },
     {
-      "player1": { "id": "p03", "faction": "bravos" },
-      "player2": { "id": "p12", "faction": "muna" },
+      "player1": { "id": "p03", "hero": "basira" },
+      "player2": { "id": "p12", "hero": "teija" },
       "winner": "p03"
     },
     {
-      "player1": { "id": "p36", "faction": null },
-      "player2": { "id": "p33", "faction": null },
+      "player1": { "id": "p36", "hero": null },
+      "player2": { "id": "p33", "hero": null },
       "winner": null
     },
     {
-      "player1": { "id": "p20", "faction": "axiom" },
-      "player2": { "id": "p19", "faction": "yzmir" },
+      "player1": { "id": "p20", "hero": "sierra" },
+      "player2": { "id": "p19", "hero": "lindiwe" },
       "winner": null
     },
     {
-      "player1": { "id": "p05", "faction": "muna" },
-      "player2": { "id": "p10", "faction": "muna" },
+      "player1": { "id": "p05", "hero": "teija" },
+      "player2": { "id": "p10", "hero": "turuun" },
       "winner": "p05"
     },
     {
-      "player1": { "id": "p31", "faction": null },
-      "player2": { "id": "p35", "faction": null },
+      "player1": { "id": "p31", "hero": null },
+      "player2": { "id": "p35", "hero": null },
       "winner": null
     },
     {
-      "player1": { "id": "p34", "faction": null },
-      "player2": { "id": "p28", "faction": null },
+      "player1": { "id": "p34", "hero": null },
+      "player2": { "id": "p28", "hero": null },
       "winner": null
     },
     {
-      "player1": { "id": "p01", "faction": "yzmir" },
-      "player2": { "id": "p11", "faction": "muna" },
+      "player1": { "id": "p01", "hero": "lindiwe" },
+      "player2": { "id": "p11", "hero": "teija" },
       "winner": "p01"
     },
     {
-      "player1": { "id": "p02", "faction": "bravos" },
-      "player2": { "id": "p18", "faction": "bravos" },
+      "player1": { "id": "p02", "hero": "basira" },
+      "player2": { "id": "p18", "hero": "sol" },
       "winner": "p02"
     },
     {
-      "player1": { "id": "p24", "faction": null },
-      "player2": { "id": "p21", "faction": null },
+      "player1": { "id": "p24", "hero": null },
+      "player2": { "id": "p21", "hero": null },
       "winner": null
     }
   ]
