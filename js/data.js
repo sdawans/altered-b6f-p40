@@ -31,7 +31,7 @@ export async function loadTournamentData() {
 }
 
 async function fetchJSON(path) {
-  const resp = await fetch(path);
+  const resp = await fetch(`${path}?v=${Date.now()}`);
   if (!resp.ok) throw new Error(`Failed to fetch ${path}`);
   return resp.json();
 }
