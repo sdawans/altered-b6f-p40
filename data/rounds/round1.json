@@ -40,7 +40,7 @@
     {
       "player1": { "id": "p29", "hero": "della" },
       "player2": { "id": "p22", "hero": "lindiwe" },
-      "winner": null
+      "winner": "p22"
     },
     {
       "player1": { "id": "p06", "hero": "lindiwe" },
