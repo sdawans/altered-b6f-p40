@@ -68,8 +68,8 @@
       "winner": "p05"
     },
     {
-      "player1": { "id": "p31", "hero": null },
-      "player2": { "id": "p35", "hero": null },
+      "player1": { "id": "p31", "hero": "subhash" },
+      "player2": { "id": "p35", "hero": "basira" },
       "winner": null
     },
     {
@@ -88,8 +88,8 @@
       "winner": "p02"
     },
     {
-      "player1": { "id": "p24", "hero": null },
-      "player2": { "id": "p21", "hero": null },
+      "player1": { "id": "p24", "hero": "teija" },
+      "player2": { "id": "p21", "hero": "sierra" },
       "winner": "p21"
     }
   ]
