@@ -15,7 +15,7 @@
     {
       "player1": { "id": "p32", "hero": "afanas" },
       "player2": { "id": "p26", "hero": "auraq" },
-      "winner": null
+      "winner": "p32"
     },
     {
       "player1": { "id": "p23", "hero": "teija" },
@@ -60,7 +60,7 @@
     {
       "player1": { "id": "p20", "hero": "sierra" },
       "player2": { "id": "p19", "hero": "lindiwe" },
-      "winner": null
+      "winner": "p20"
     },
     {
       "player1": { "id": "p05", "hero": "teija" },
@@ -70,7 +70,7 @@
     {
       "player1": { "id": "p31", "hero": "subhash" },
       "player2": { "id": "p35", "hero": "basira" },
-      "winner": null
+      "winner": "p35"
     },
     {
       "player1": { "id": "p34", "hero": "teija" },
