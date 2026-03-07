@@ -1,8 +1,8 @@
-import { factionBadge, escapeHtml } from '../ui.js?v=3';
+import { factionBadge, escapeHtml } from '../ui.js?v=4';
 
 export function renderConquest(standings, factionList, factions) {
   const factionHeaders = factionList.map(f =>
-    `<th style="padding:8px 4px;text-align:center">${factionBadge(f, { size: 'sm' })}</th>`
+    `<th style="padding:8px 4px;text-align:center">${factionBadge(f, { size: 'md' })}</th>`
   ).join('');
 
   const rows = standings.map(p => {

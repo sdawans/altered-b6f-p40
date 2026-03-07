@@ -1,4 +1,4 @@
-import { factionBadge } from '../ui.js?v=3';
+import { factionBadge } from '../ui.js?v=4';
 
 export function renderInfo(tournament, factionList) {
   const prizeRows = tournament.prizes.map(p =>
@@ -8,7 +8,7 @@ export function renderInfo(tournament, factionList) {
   const bannedHeroes = factionList.map(f =>
     `<div class="banned-hero">
       <img class="banned-hero__img" src="img/heroes/${f.bannedHero.toLowerCase()}.webp" alt="${f.bannedHero}">
-      ${factionBadge(f, { size: 'sm' })}
+      ${factionBadge(f, { size: 'lg' })}
       <span class="banned-hero__name">${f.bannedHero}</span>
     </div>`
   ).join('');

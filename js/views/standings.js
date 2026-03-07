@@ -1,4 +1,4 @@
-import { factionBadge, escapeHtml } from '../ui.js?v=3';
+import { factionBadge, escapeHtml } from '../ui.js?v=4';
 
 const PRIZE_COLORS = ['#ffd700', '#c0c0c0', '#cd7f32', '#cd7f32', '#6a8caf', '#6a8caf',
   '#557788', '#557788', '#557788', '#557788', '#557788'];
@@ -6,7 +6,7 @@ const PRIZE_COLORS = ['#ffd700', '#c0c0c0', '#cd7f32', '#cd7f32', '#6a8caf', '#6
 export function renderStandings(standings, factions, onSelectPlayer) {
   const rows = standings.map((p, i) => {
     const conqueredBadges = Object.keys(p.factionWins)
-      .map(fId => factionBadge(factions[fId], { size: 'sm', won: true }))
+      .map(fId => factionBadge(factions[fId], { size: 'md', won: true }))
       .join('');
 
     const rankColor = i < 11 ? PRIZE_COLORS[i] : '#666';

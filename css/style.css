@@ -46,6 +46,25 @@ table { border-collapse: collapse; }
 .header {
   text-align: center;
   margin-bottom: 32px;
+  position: relative;
+  padding-top: 180px;
+  overflow: hidden;
+}
+
+.header__banner {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center 30%;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  border-radius: 12px 12px 0 0;
 }
 
 .header__logo {
@@ -189,8 +208,6 @@ table { border-collapse: collapse; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 3px 10px;
-  border-radius: 6px;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -198,23 +215,20 @@ table { border-collapse: collapse; }
   transition: opacity 0.15s;
 }
 
-.faction-badge--sm { padding: 2px 6px; font-size: 9px; }
-.faction-badge--md { font-size: 11px; }
-.faction-badge--lg { padding: 4px 12px; font-size: 13px; }
+.faction-badge--sm { font-size: 11px; }
+.faction-badge--md { font-size: 12px; }
+.faction-badge--lg { font-size: 14px; }
 
 .faction-badge--dimmed { opacity: 0.45; }
 
 .faction-badge__icon {
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
+  border-radius: 4px;
+  object-fit: contain;
 }
 
-.faction-badge__icon--sm { width: 20px; height: 20px; font-size: 9px; }
-.faction-badge__icon--md { width: 28px; height: 28px; font-size: 11px; }
-.faction-badge__icon--lg { width: 36px; height: 36px; font-size: 13px; }
+.faction-badge__icon--sm { width: 24px; height: 30px; }
+.faction-badge__icon--md { width: 30px; height: 38px; }
+.faction-badge__icon--lg { width: 38px; height: 48px; }
 
 /* ─── HERO BADGE ───────────────────────────────────────────── */
 .hero-badge {

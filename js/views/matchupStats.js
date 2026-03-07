@@ -1,8 +1,8 @@
-import { factionBadge } from '../ui.js?v=3';
+import { factionBadge } from '../ui.js?v=4';
 
 export function renderMatchupStats(globalStats, factionList, factions) {
   const headers = factionList.map(f =>
-    `<th style="padding:8px 4px;text-align:center">${factionBadge(f, { size: 'sm' })}</th>`
+    `<th style="padding:8px 4px;text-align:center">${factionBadge(f, { size: 'md' })}</th>`
   ).join('');
 
   const rows = factionList.map(f1 => {
@@ -27,7 +27,7 @@ export function renderMatchupStats(globalStats, factionList, factions) {
 
     return `
       <tr>
-        <td style="padding:6px 12px">${factionBadge(f1, { size: 'sm', showName: true })}</td>
+        <td style="padding:6px 12px">${factionBadge(f1, { size: 'md', showName: true })}</td>
         ${cells}
       </tr>
     `;

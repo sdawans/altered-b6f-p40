@@ -1,4 +1,4 @@
-import { factionBadge } from '../ui.js?v=3';
+import { factionBadge } from '../ui.js?v=4';
 
 export function renderFactionStats(globalStats, factionList, factions) {
   const rows = factionList.map(f => {
@@ -9,7 +9,7 @@ export function renderFactionStats(globalStats, factionList, factions) {
 
     return `
       <tr>
-        <td>${factionBadge(f, { size: 'sm', showName: true })}</td>
+        <td>${factionBadge(f, { size: 'md', showName: true })}</td>
         <td class="center">${s.picks}</td>
         <td class="center" style="color:var(--win)">${s.wins}</td>
         <td class="center" style="color:var(--loss)">${s.losses}</td>
