@@ -219,7 +219,7 @@ table { border-collapse: collapse; }
 .faction-badge--md { font-size: 12px; }
 .faction-badge--lg { font-size: 14px; }
 
-.faction-badge--dimmed { opacity: 0.45; }
+.faction-badge--dimmed { opacity: 0.3; filter: grayscale(0.8); }
 
 .faction-badge__icon {
   border-radius: 4px;
