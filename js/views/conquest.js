@@ -7,6 +7,9 @@ export function renderConquest(standings, factionList, factions) {
 
   const rows = standings.map(p => {
     const conquestCount = Object.keys(p.factionWins).length;
+    const jokers = p.byes || 0;
+    // Jokers fill unconquered factions, capped at remaining slots
+    const effectiveConquest = Math.min(conquestCount + jokers, 6);
     const uniqueFactions = new Set([
       ...Object.keys(p.factionWins),
       ...Object.keys(p.factionLosses),
@@ -51,15 +54,17 @@ export function renderConquest(standings, factionList, factions) {
     }).join('');
 
     const nameColor = p.status === 'dropped' ? 'var(--text-dim)' : '#d4d4e0';
-    const scoreColor = conquestCount >= 5 ? 'var(--gold)' : conquestCount >= 3 ? 'var(--win)' : 'var(--text-secondary)';
+    const scoreColor = effectiveConquest >= 5 ? 'var(--gold)' : effectiveConquest >= 3 ? 'var(--win)' : 'var(--text-secondary)';
     const lotteryColor = uniqueFactions >= 6 ? 'var(--gold)' : uniqueFactions >= 4 ? 'var(--text-secondary)' : 'var(--text-dim)';
     const lotteryBonus = uniqueFactions >= 6 ? ' ✨' : '';
+    const jokerDisplay = jokers > 0 ? `<span style="color:var(--gold)" title="Joker(s) from bye — counts as wildcard conquest">+${jokers}</span>` : '';
+    const scoreDisplay = jokers > 0 ? `${conquestCount}+${jokers}/6` : `${conquestCount}/6`;
 
     return `
       <tr style="border-bottom:1px solid #1a1a2e">
         <td class="conquest player-name" style="color:${nameColor}">${escapeHtml(p.name)}</td>
         ${cells}
-        <td class="conquest__score" style="color:${scoreColor}">${conquestCount}/6</td>
+        <td class="conquest__score" style="color:${scoreColor}" title="${jokers > 0 ? `${conquestCount} conquered + ${jokers} joker(s)` : ''}">${scoreDisplay}</td>
         <td class="conquest__lottery" style="color:${lotteryColor}" title="Unique factions played (6 = lottery bonus)">${uniqueFactions}/6${lotteryBonus}</td>
       </tr>
     `;
@@ -72,6 +77,7 @@ export function renderConquest(standings, factionList, factions) {
         <span><span style="color:#ef444477">✕</span> lost (can replay)</span>
         <span><span style="color:var(--text-secondary)">⟳</span> in progress</span>
         <span style="color:var(--text-dim)">empty = not yet played</span>
+        <span><span style="color:var(--gold)">+N</span> joker (bye = wildcard conquest)</span>
       </div>
       <table>
         <thead>

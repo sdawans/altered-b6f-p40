@@ -30,8 +30,25 @@ export function renderRounds(rounds, totalRounds, playerMap, factions, heroes, o
   if (round && round.matches.length > 0) {
     matchesHtml = round.matches.map(m => {
       const p1 = playerMap[m.player1.id];
+      if (!p1) return '';
+
+      // Bye match
+      if (!m.player2) {
+        return `
+          <div class="match-card">
+            <div class="match-card__player" data-player-id="${p1.id}">
+              <span class="match-card__name match-card__name--winner">${escapeHtml(p1.name)}<span class="match-card__star">★</span></span>
+            </div>
+            <span class="match-card__vs">bye</span>
+            <div class="match-card__player match-card__player--right">
+              <span class="match-card__name" style="color:var(--text-dim);font-style:italic">No opponent</span>
+            </div>
+          </div>
+        `;
+      }
+
       const p2 = playerMap[m.player2.id];
-      if (!p1 || !p2) return '';
+      if (!p2) return '';
 
       const p1Won = m.winner === m.player1.id;
       const p2Won = m.winner === m.player2.id;

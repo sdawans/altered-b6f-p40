@@ -59,6 +59,7 @@ function computeStandings(players, rounds, heroes) {
       wins: 0,
       losses: 0,
       points: 0,
+      byes: 0,
       opponents: [],
       factionWins: {},
       factionLosses: {},
@@ -74,6 +75,20 @@ function computeStandings(players, rounds, heroes) {
 
   rounds.forEach(round => {
     round.matches.forEach(m => {
+      // Bye match: player2 is null → auto-win, no faction/hero tracking
+      if (!m.player2) {
+        const p1 = stats[m.player1.id];
+        if (!p1) return;
+        p1.wins++;
+        p1.points += 3;
+        p1.byes++;
+        p1.matches.push({
+          round: round.round, opponent: null, hero: null, opHero: null,
+          faction: null, opFaction: null, result: 'bye',
+        });
+        return;
+      }
+
       const p1 = stats[m.player1.id];
       const p2 = stats[m.player2.id];
       if (!p1 || !p2) return;
@@ -151,6 +166,7 @@ function computeGlobalStats(rounds, heroes) {
 
   rounds.forEach(round => {
     round.matches.forEach(m => {
+      if (!m.player2) return; // skip byes
       const h1 = m.player1.hero;
       const h2 = m.player2.hero;
       const f1 = heroFaction(h1, heroes);

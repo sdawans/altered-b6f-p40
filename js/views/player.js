@@ -18,6 +18,16 @@ export function renderPlayer(playerId, standings, factionList, factions, heroes,
   }).join('');
 
   const matchRows = stat.matches.map(m => {
+    if (m.result === 'bye') {
+      return `
+        <div class="match-row match-row--win">
+          <span class="match-row__round">R${m.round}</span>
+          <span class="match-row__result match-row__result--win">BYE</span>
+          <span style="color:var(--text-dim);font-style:italic">No opponent — joker win</span>
+        </div>
+      `;
+    }
+
     const opp = playerMap[m.opponent];
     const h = heroes[m.hero];
     const opH = heroes[m.opHero];
@@ -46,7 +56,7 @@ export function renderPlayer(playerId, standings, factionList, factions, heroes,
         <h2 class="player-header__name">${escapeHtml(stat.name)}${droppedBadge}</h2>
         <div class="player-header__stats">
           <span><strong>${stat.points}</strong> pts</span>
-          <span><strong style="color:var(--win)">${stat.wins}</strong>W – <strong style="color:var(--loss)">${stat.losses}</strong>L</span>
+          <span><strong style="color:var(--win)">${stat.wins}</strong>W – <strong style="color:var(--loss)">${stat.losses}</strong>L</span>${stat.byes > 0 ? `\n          <span style="color:var(--gold)">Jokers: ${stat.byes}</span>` : ''}
           <span>Resistance: ${(stat.resistance * 100).toFixed(0)}%</span>
           <span>ELO: ${stat.elo}</span>
         </div>
