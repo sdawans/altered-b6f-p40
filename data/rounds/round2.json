@@ -45,7 +45,7 @@
     {
       "player1": { "id": "p17", "hero": "sol" },
       "player2": { "id": "p27", "hero": "teija" },
-      "winner": null
+      "winner": "p17"
     },
     {
       "player1": { "id": "p14", "hero": "sierra" },
