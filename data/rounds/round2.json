@@ -25,7 +25,7 @@
     {
       "player1": { "id": "p04", "hero": "teija" },
       "player2": { "id": "p22", "hero": "gulrang" },
-      "winner": null
+      "winner": "p22"
     },
     {
       "player1": { "id": "p28", "hero": "auraq" },
@@ -81,7 +81,7 @@
     {
       "player1": { "id": "p31", "hero": "subhash" },
       "player2": { "id": "p12", "hero": "lindiwe" },
-      "winner": null
+      "winner": "p31"
     },
     {
       "player1": { "id": "p34", "hero": "teija" },
