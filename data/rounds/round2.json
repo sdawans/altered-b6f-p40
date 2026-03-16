@@ -72,8 +72,8 @@
       "winner": "p16"
     },
     {
-      "player1": { "id": "p24", "hero": "sol" },
-      "player2": { "id": "p18", "hero": "teija" },
+      "player1": { "id": "p24", "hero": "teija" },
+      "player2": { "id": "p18", "hero": "sol" },
       "winner": "p18"
     },
 
