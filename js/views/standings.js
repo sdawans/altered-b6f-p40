@@ -7,7 +7,8 @@ export function renderStandings(standings, factions, onSelectPlayer) {
   const rows = standings.map((p, i) => {
     const conqueredBadges = Object.keys(p.factionWins)
       .map(fId => factionBadge(factions[fId], { size: 'md', won: true }))
-      .join('');
+      .join('')
+      + (p.byes > 0 ? Array(p.byes).fill('<span class="joker-badge" title="Joker (bye win — wildcard conquest)">?</span>').join('') : '');
 
     const rankColor = i < 11 ? PRIZE_COLORS[i] : '#666';
     const nameClass = p.status === 'dropped' ? 'standings__name standings__name--dropped' : 'standings__name';

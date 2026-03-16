@@ -201,7 +201,23 @@ table { border-collapse: collapse; }
 .standings__wins { color: var(--win); font-weight: 600; }
 .standings__losses { color: var(--loss); font-weight: 600; }
 .standings__points { font-weight: 700; font-size: 16px; }
-.standings__factions { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; }
+.standings__factions { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; align-items: center; }
+
+/* ─── JOKER BADGE ──────────────────────────────────────────── */
+.joker-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 38px;
+  border-radius: 4px;
+  background: #222233;
+  border: 1.5px dashed #555;
+  color: #777;
+  font-weight: 800;
+  font-size: 16px;
+  font-style: italic;
+}
 
 /* ─── FACTION BADGE ─────────────────────────────────────────── */
 .faction-badge {
