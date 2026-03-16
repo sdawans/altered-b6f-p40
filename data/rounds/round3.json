@@ -1,5 +1,90 @@
 {
   "round": 3,
-  "status": "upcoming",
-  "matches": []
+  "status": "in_progress",
+  "matches": [
+    {
+      "player1": { "id": "p17", "hero": "sierra" },
+      "player2": { "id": "p30", "hero": "teija" },
+      "winner": "p17"
+    },
+    {
+      "player1": { "id": "p06", "hero": "turuun" },
+      "player2": { "id": "p01", "hero": "sol" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p20", "hero": null },
+      "player2": { "id": "p22", "hero": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p05", "hero": null },
+      "player2": { "id": "p35", "hero": null },
+      "winner": "p05"
+    },
+    {
+      "player1": { "id": "p28", "hero": null },
+      "player2": { "id": "p09", "hero": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p16", "hero": "teija" },
+      "player2": { "id": "p34", "hero": "auraq" },
+      "winner": "p16"
+    },
+    {
+      "player1": { "id": "p08", "hero": null },
+      "player2": { "id": "p11", "hero": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p04", "hero": null },
+      "player2": { "id": "p33", "hero": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p07", "hero": "della" },
+      "player2": { "id": "p18", "hero": "turuun" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p02", "hero": null },
+      "player2": { "id": "p27", "hero": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p26", "hero": "matz" },
+      "player2": { "id": "p13", "hero": "auraq" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p31", "hero": null },
+      "player2": { "id": "p14", "hero": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p03", "hero": "afanas" },
+      "player2": { "id": "p29", "hero": "rin" },
+      "winner": "p03"
+    },
+    {
+      "player1": { "id": "p12", "hero": "nadir" },
+      "player2": { "id": "p19", "hero": "turuun" },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p25", "hero": null },
+      "player2": { "id": "p24", "hero": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p36", "hero": null },
+      "player2": { "id": "p15", "hero": null },
+      "winner": null
+    },
+    {
+      "player1": { "id": "p23", "hero": null },
+      "player2": null
+    }
+  ]
 }

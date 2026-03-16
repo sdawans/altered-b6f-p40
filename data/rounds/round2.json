@@ -1,6 +1,6 @@
 {
   "round": 2,
-  "status": "in_progress",
+  "status": "completed",
   "matches": [
     {
       "player1": { "id": "p05", "hero": "nevenka" },
@@ -14,8 +14,7 @@
     },
     {
       "player1": { "id": "p30", "hero": null },
-      "player2": { "id": "p21", "hero": null },
-      "winner": null
+      "player2": null
     },
     {
       "player1": { "id": "p01", "hero": "turuun" },

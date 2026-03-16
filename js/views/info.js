@@ -22,7 +22,7 @@ export function renderInfo(tournament, factionList) {
             <div><strong>${tournament.format}</strong> format</div>
             <div><strong>Faction Conquest</strong> — win with a faction → can't replay it</div>
             <div><strong>${tournament.totalRounds} rounds</strong>, turn-based (${tournament.turnTime})</div>
-            <div>Played on <strong>${tournament.platform}</strong></div>
+            <div>Played on <strong>${tournament.platform}</strong> — <a href="https://boardgamearena.com/tournament?id=525806" target="_blank" style="color:var(--accent);text-decoration:underline">View on BGA</a></div>
           </div>
         </div>
 
