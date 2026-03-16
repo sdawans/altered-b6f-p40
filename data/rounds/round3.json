@@ -58,9 +58,9 @@
       "winner": null
     },
     {
-      "player1": { "id": "p31", "hero": null },
-      "player2": { "id": "p14", "hero": null },
-      "winner": null
+      "player1": { "id": "p31", "hero": "subhash" },
+      "player2": { "id": "p14", "hero": "afanas" },
+      "winner": "p14"
     },
     {
       "player1": { "id": "p03", "hero": "afanas" },
