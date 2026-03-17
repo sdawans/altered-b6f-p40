@@ -10,7 +10,7 @@
     {
       "player1": { "id": "p06", "hero": "turuun" },
       "player2": { "id": "p01", "hero": "sol" },
-      "winner": null
+      "winner": "p01"
     },
     {
       "player1": { "id": "p20", "hero": "afanas" },
@@ -55,7 +55,7 @@
     {
       "player1": { "id": "p26", "hero": "matz" },
       "player2": { "id": "p13", "hero": "auraq" },
-      "winner": null
+      "winner": "p13"
     },
     {
       "player1": { "id": "p31", "hero": "subhash" },
