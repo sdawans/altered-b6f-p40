@@ -15,7 +15,7 @@
     {
       "player1": { "id": "p20", "hero": "afanas" },
       "player2": { "id": "p22", "hero": "nadir" },
-      "winner": null
+      "winner": "p22"
     },
     {
       "player1": { "id": "p05", "hero": "sierra" },
@@ -33,8 +33,8 @@
       "winner": "p16"
     },
     {
-      "player1": { "id": "p08", "hero": null },
-      "player2": { "id": "p11", "hero": null },
+      "player1": { "id": "p08", "hero": "della" },
+      "player2": { "id": "p11", "hero": "teija" },
       "winner": null
     },
     {
@@ -45,7 +45,7 @@
     {
       "player1": { "id": "p07", "hero": "della" },
       "player2": { "id": "p18", "hero": "turuun" },
-      "winner": null
+      "winner": "p07"
     },
     {
       "player1": { "id": "p02", "hero": "teija" },
