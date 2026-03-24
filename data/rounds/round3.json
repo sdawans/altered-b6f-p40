@@ -35,7 +35,7 @@
     {
       "player1": { "id": "p08", "hero": "della" },
       "player2": { "id": "p11", "hero": "teija" },
-      "winner": null
+      "winner": "p11"
     },
     {
       "player1": { "id": "p04", "hero": "sol" },
@@ -80,7 +80,7 @@
     {
       "player1": { "id": "p36", "hero": "zhen" },
       "player2": { "id": "p15", "hero": "nevenka" },
-      "winner": null
+      "winner": "p15"
     },
     {
       "player1": { "id": "p23", "hero": null },
