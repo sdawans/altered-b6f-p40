@@ -1,4 +1,4 @@
-import { factionBadge } from '../ui.js?v=5';
+import { factionBadge } from '../ui.js?v=7';
 
 export function renderMatchupStats(globalStats, factionList, factions) {
   const headers = factionList.map(f =>

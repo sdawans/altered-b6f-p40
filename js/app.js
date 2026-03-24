@@ -1,16 +1,18 @@
-import { loadTournamentData } from './data.js?v=5';
-import { renderStandings } from './views/standings.js?v=5';
-import { renderConquest } from './views/conquest.js?v=5';
-import { renderRounds } from './views/rounds.js?v=5';
-import { renderPlayer } from './views/player.js?v=5';
-import { renderInfo } from './views/info.js?v=5';
-import { renderFactionStats } from './views/factionStats.js?v=5';
-import { renderHeroStats } from './views/heroStats.js?v=5';
-import { renderMatchupStats } from './views/matchupStats.js?v=5';
+import { loadTournamentData } from './data.js?v=7';
+import { renderStandings } from './views/standings.js?v=7';
+import { renderConquest } from './views/conquest.js?v=7';
+import { renderRounds } from './views/rounds.js?v=7';
+import { renderPlayer } from './views/player.js?v=7';
+import { renderInfo } from './views/info.js?v=7';
+import { renderFactionStats, renderFactionDetail } from './views/factionStats.js?v=7';
+import { renderHeroStats, renderHeroDetail } from './views/heroStats.js?v=7';
+import { renderMatchupStats } from './views/matchupStats.js?v=7';
 
 let data = null;
 let currentTab = 'standings';
 let selectedPlayer = null;
+let selectedHero = null;
+let selectedFaction = null;
 
 // ─── INIT ──────────────────────────────────────────────────────
 
@@ -59,6 +61,8 @@ function bindTabs() {
     btn.addEventListener('click', () => {
       currentTab = btn.dataset.tab;
       selectedPlayer = null;
+      selectedHero = null;
+      selectedFaction = null;
       updateTabStyles();
       render();
     });
@@ -91,6 +95,26 @@ function render() {
     return;
   }
 
+  if (selectedHero) {
+    document.querySelector('.tabs').style.display = 'none';
+    renderHeroDetail(selectedHero, heroes, factions, rounds, standings, globalStats, () => {
+      selectedHero = null;
+      document.querySelector('.tabs').style.display = '';
+      render();
+    }, selectPlayer);
+    return;
+  }
+
+  if (selectedFaction) {
+    document.querySelector('.tabs').style.display = 'none';
+    renderFactionDetail(selectedFaction, factions, heroes, heroList, rounds, standings, globalStats, () => {
+      selectedFaction = null;
+      document.querySelector('.tabs').style.display = '';
+      render();
+    }, selectPlayer, selectHero);
+    return;
+  }
+
   document.querySelector('.tabs').style.display = '';
 
   switch (currentTab) {
@@ -104,10 +128,10 @@ function render() {
       renderRounds(rounds, tournament.totalRounds, playerMap, factions, heroes, selectPlayer);
       break;
     case 'factionStats':
-      renderFactionStats(globalStats, factionList, factions);
+      renderFactionStats(globalStats, factionList, factions, selectFaction);
       break;
     case 'heroStats':
-      renderHeroStats(globalStats, heroList, heroes, factions);
+      renderHeroStats(globalStats, heroList, heroes, factions, selectHero);
       break;
     case 'matchups':
       renderMatchupStats(globalStats, factionList, factions);
@@ -120,6 +144,22 @@ function render() {
 
 function selectPlayer(playerId) {
   selectedPlayer = playerId;
+  selectedHero = null;
+  selectedFaction = null;
+  render();
+}
+
+function selectHero(heroId) {
+  selectedHero = heroId;
+  selectedPlayer = null;
+  selectedFaction = null;
+  render();
+}
+
+function selectFaction(factionId) {
+  selectedFaction = factionId;
+  selectedPlayer = null;
+  selectedHero = null;
   render();
 }
 
