@@ -28,9 +28,9 @@
       "winner": null
     },
     {
-      "player1": { "id": "p06", "hero": null },
-      "player2": { "id": "p30", "hero": null },
-      "winner": null
+      "player1": { "id": "p06", "hero": "sol" },
+      "player2": { "id": "p30", "hero": "nevenka" },
+      "winner": "p30"
     },
     {
       "player1": { "id": "p13", "hero": "sol" },
