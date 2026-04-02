@@ -28,14 +28,9 @@
       "winner": "p13"
     },
     {
-      "player1": { "id": "p13", "hero": "della" },
-      "player2": { "id": "p03", "hero": "nevenka" },
-      "winner": "p13"
-    },
-    {
       "player1": { "id": "p23", "hero": "matz" },
       "player2": { "id": "p09", "hero": "kojo" },
-      "winner": "p13"
+      "winner": null
     },
     {
       "player1": { "id": "p04", "hero": "matz" },
