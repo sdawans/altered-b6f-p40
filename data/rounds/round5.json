@@ -5,7 +5,7 @@
     {
       "player1": { "id": "p22", "hero": "basira" },
       "player2": { "id": "p01", "hero": "zhen" },
-      "winner": null
+      "winner": "p22"
     },
     {
       "player1": { "id": "p05", "hero": "afanas" },
