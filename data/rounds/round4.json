@@ -1,11 +1,11 @@
 {
   "round": 4,
-  "status": "in_progress",
+  "status": "completed",
   "matches": [
     {
-      "player1": { "id": "p28", "hero": null },
-      "player2": { "id": "p01", "hero": null },
-      "winner": null
+      "player1": { "id": "p28", "hero": "zhen" },
+      "player2": { "id": "p01", "hero": "della" },
+      "winner": "p01"
     },
     {
       "player1": { "id": "p17", "hero": "zhen" },
@@ -53,9 +53,9 @@
       "winner": "p23"
     },
     {
-      "player1": { "id": "p08", "hero": null },
-      "player2": { "id": "p25", "hero": null },
-      "winner": null
+      "player1": { "id": "p08", "hero": "nadir" },
+      "player2": { "id": "p25", "hero": "subhash" },
+      "winner": "p25"
     },
     {
       "player1": { "id": "p15", "hero": "nadir" },
