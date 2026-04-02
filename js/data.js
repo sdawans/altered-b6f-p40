@@ -29,7 +29,10 @@ export async function loadTournamentData() {
     }
   }
 
-  const standings = computeStandings(players, rounds, heroes);
+  // Build set of banned hero IDs
+  const bannedHeroes = new Set(tournament.factions.map(f => f.bannedHero.toLowerCase()));
+
+  const standings = computeStandings(players, rounds, heroes, bannedHeroes);
   const globalStats = computeGlobalStats(rounds, heroes);
 
   return { tournament, players, rounds, factions, heroes, standings, globalStats };
@@ -50,7 +53,7 @@ function heroFaction(heroId, heroes) {
 
 // ─── STANDINGS COMPUTATION ─────────────────────────────────────
 
-function computeStandings(players, rounds, heroes) {
+function computeStandings(players, rounds, heroes, bannedHeroes) {
   const stats = {};
 
   players.forEach(p => {
@@ -69,6 +72,7 @@ function computeStandings(players, rounds, heroes) {
       heroLosses: {},
       heroPlayed: {},
       heroPending: {},
+      bannedHeroViolations: [],
       matches: [],
     };
   });
@@ -98,6 +102,26 @@ function computeStandings(players, rounds, heroes) {
 
       const h1 = m.player1.hero;
       const h2 = m.player2.hero;
+
+      // Winner with null hero (timeout before deck selection) → joker for winner, loss for loser
+      if (m.winner && ((!h1 && m.winner === m.player1.id) || (!h2 && m.winner === m.player2.id))) {
+        const winner = m.winner === m.player1.id ? p1 : p2;
+        const loser = m.winner === m.player1.id ? p2 : p1;
+        const loserId = m.winner === m.player1.id ? m.player2.id : m.player1.id;
+        const winnerId = m.winner === m.player1.id ? m.player1.id : m.player2.id;
+        winner.wins++; winner.points += 3; winner.byes++;
+        loser.losses++;
+        winner.matches.push({
+          round: round.round, opponent: loserId, hero: null, opHero: null,
+          faction: null, opFaction: null, result: 'win',
+        });
+        loser.matches.push({
+          round: round.round, opponent: winnerId, hero: null, opHero: null,
+          faction: null, opFaction: null, result: 'loss',
+        });
+        return;
+      }
+
       const f1 = heroFaction(h1, heroes);
       const f2 = heroFaction(h2, heroes);
 
@@ -106,8 +130,10 @@ function computeStandings(players, rounds, heroes) {
       if (f1) p1.factionPlayed[f1] = (p1.factionPlayed[f1] || 0) + 1;
       if (f2) p2.factionPlayed[f2] = (p2.factionPlayed[f2] || 0) + 1;
 
-      const mi1 = { round: round.round, opponent: m.player2.id, hero: h1, opHero: h2, faction: f1, opFaction: f2, result: null };
-      const mi2 = { round: round.round, opponent: m.player1.id, hero: h2, opHero: h1, faction: f2, opFaction: f1, result: null };
+      const b1 = h1 && bannedHeroes.has(h1);
+      const b2 = h2 && bannedHeroes.has(h2);
+      const mi1 = { round: round.round, opponent: m.player2.id, hero: h1, opHero: h2, faction: f1, opFaction: f2, result: null, banned: b1 };
+      const mi2 = { round: round.round, opponent: m.player1.id, hero: h2, opHero: h1, faction: f2, opFaction: f1, result: null, banned: b2 };
 
       if (m.winner === m.player1.id) {
         p1.wins++; p1.points += 3;
@@ -125,8 +151,8 @@ function computeStandings(players, rounds, heroes) {
         p1.losses++;
         if (f1) p1.factionLosses[f1] = (p1.factionLosses[f1] || 0) + 1;
         if (h1) p1.heroLosses[h1] = (p1.heroLosses[h1] || 0) + 1;
-        mi1.result = 'loss';
-        mi2.result = 'win';
+        mi1.result = 'win';
+        mi2.result = 'loss';
       } else {
         if (f1) p1.factionPending[f1] = true;
         if (f2) p2.factionPending[f2] = true;
@@ -135,6 +161,10 @@ function computeStandings(players, rounds, heroes) {
         mi1.result = 'pending';
         mi2.result = 'pending';
       }
+
+      // Track banned hero violations (winning with a banned hero)
+      if (b1 && mi1.result === 'win') p1.bannedHeroViolations.push({ round: round.round, hero: h1, faction: f1 });
+      if (b2 && mi2.result === 'win') p2.bannedHeroViolations.push({ round: round.round, hero: h2, faction: f2 });
 
       p1.matches.push(mi1);
       p2.matches.push(mi2);

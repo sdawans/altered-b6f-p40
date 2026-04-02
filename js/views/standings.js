@@ -1,4 +1,4 @@
-import { factionBadge, escapeHtml } from '../ui.js?v=7';
+import { factionBadge, escapeHtml } from '../ui.js?v=8';
 
 const PRIZE_COLORS = ['#ffd700', '#c0c0c0', '#cd7f32', '#cd7f32', '#6a8caf', '#6a8caf',
   '#557788', '#557788', '#557788', '#557788', '#557788'];
@@ -13,11 +13,13 @@ export function renderStandings(standings, factions, onSelectPlayer) {
     const rankColor = i < 11 ? PRIZE_COLORS[i] : '#666';
     const nameClass = p.status === 'dropped' ? 'standings__name standings__name--dropped' : 'standings__name';
     const droppedBadge = p.status === 'dropped' ? '<span class="badge-dropped">dropped</span>' : '';
+    const violationBadge = p.bannedHeroViolations.length > 0
+      ? '<span style="color:#f59e0b;font-size:11px;margin-left:4px" title="Played banned hero">⚠</span>' : '';
 
     return `
       <tr data-player-id="${p.id}">
         <td class="standings__rank" style="color:${rankColor}">${i + 1}</td>
-        <td><span class="${nameClass}">${escapeHtml(p.name)}</span>${droppedBadge}</td>
+        <td><span class="${nameClass}">${escapeHtml(p.name)}</span>${droppedBadge}${violationBadge}</td>
         <td class="center standings__wins">${p.wins}</td>
         <td class="center standings__losses">${p.losses}</td>
         <td class="center standings__points">${p.points}</td>

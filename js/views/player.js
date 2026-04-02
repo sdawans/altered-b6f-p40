@@ -1,4 +1,4 @@
-import { factionBadge, heroBadge, escapeHtml } from '../ui.js?v=7';
+import { factionBadge, heroBadge, escapeHtml } from '../ui.js?v=8';
 
 export function renderPlayer(playerId, standings, factionList, factions, heroes, onBack) {
   const stat = standings.find(s => s.id === playerId);
@@ -9,12 +9,15 @@ export function renderPlayer(playerId, standings, factionList, factions, heroes,
   const droppedBadge = stat.status === 'dropped'
     ? '<span class="badge-dropped" style="margin-left:12px;vertical-align:middle">DROPPED</span>' : '';
 
+  const violatedFactions = new Set(stat.bannedHeroViolations.map(v => v.faction));
+
   const conquestBadges = factionList.map(f => {
     const won = stat.factionWins[f.id];
-    const played = stat.factionPlayed[f.id];
     const pending = stat.matches.some(m => m.faction === f.id && m.result === 'pending');
     const wonState = won ? true : pending ? null : false;
-    return factionBadge(f, { size: 'lg', showName: true, won: wonState });
+    const warn = won && violatedFactions.has(f.id)
+      ? '<span style="color:#f59e0b;font-size:12px;margin-left:2px" title="Won with banned hero">⚠</span>' : '';
+    return factionBadge(f, { size: 'lg', showName: true, won: wonState }) + warn;
   }).join('');
 
   const matchRows = stat.matches.map(m => {
@@ -36,12 +39,13 @@ export function renderPlayer(playerId, standings, factionList, factions, heroes,
     const cls = `match-row match-row--${m.result}`;
     const resCls = `match-row__result match-row__result--${m.result}`;
     const resLabel = m.result === 'win' ? 'WIN' : m.result === 'loss' ? 'LOSS' : 'LIVE';
+    const bannedWarn = m.banned ? '<span style="color:#f59e0b;font-size:11px;margin-left:2px" title="Banned hero">⚠</span>' : '';
 
     return `
       <div class="${cls}">
         <span class="match-row__round">R${m.round}</span>
         <span class="${resCls}">${resLabel}</span>
-        ${heroBadge(h, f, { size: 'sm', showName: true })}
+        ${heroBadge(h, f, { size: 'sm', showName: true })}${bannedWarn}
         <span class="match-row__vs">vs</span>
         ${heroBadge(opH, opF, { size: 'sm', showName: true })}
         <span class="match-row__opponent">${opp ? escapeHtml(opp.name) : 'Unknown'}</span>

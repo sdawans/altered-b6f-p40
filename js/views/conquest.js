@@ -1,4 +1,4 @@
-import { factionBadge, escapeHtml } from '../ui.js?v=7';
+import { factionBadge, escapeHtml } from '../ui.js?v=8';
 
 export function renderConquest(standings, factionList, factions) {
   const factionHeaders = factionList.map(f =>
@@ -16,15 +16,19 @@ export function renderConquest(standings, factionList, factions) {
       ...Object.keys(p.factionPending),
     ]).size;
 
+    const violatedFactions = new Set(p.bannedHeroViolations.map(v => v.faction));
+
     const cells = factionList.map(f => {
       const won = !!p.factionWins[f.id];
       const lossCount = p.factionLosses[f.id] || 0;
       const pending = !!p.factionPending[f.id];
+      const violated = won && violatedFactions.has(f.id);
 
       let content, bg, border, color;
 
       if (won) {
-        content = '<span style="font-size:16px">✦</span>';
+        const warn = violated ? '<span style="font-size:10px;color:#f59e0b" title="Won with banned hero">⚠</span>' : '';
+        content = `<span style="font-size:16px">✦</span>${warn}`;
         bg = f.bg;
         border = f.color;
         color = f.color;
