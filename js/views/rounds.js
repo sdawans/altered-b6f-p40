@@ -1,4 +1,4 @@
-import { heroBadge, escapeHtml } from '../ui.js?v=9';
+import { heroBadge, escapeHtml } from '../ui.js?v=10';
 
 let activeRound = null;
 

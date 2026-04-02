@@ -1,4 +1,4 @@
-import { heroBadge, escapeHtml } from '../ui.js?v=9';
+import { heroBadge, escapeHtml } from '../ui.js?v=10';
 
 export function renderHeroStats(globalStats, heroList, heroes, factions, selectHero) {
   // Sort heroes by picks desc, then win rate desc

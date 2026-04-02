@@ -151,8 +151,8 @@ function computeStandings(players, rounds, heroes, bannedHeroes) {
         p1.losses++;
         if (f1) p1.factionLosses[f1] = (p1.factionLosses[f1] || 0) + 1;
         if (h1) p1.heroLosses[h1] = (p1.heroLosses[h1] || 0) + 1;
-        mi1.result = 'win';
-        mi2.result = 'loss';
+        mi1.result = 'loss';
+        mi2.result = 'win';
       } else {
         if (f1) p1.factionPending[f1] = true;
         if (f2) p2.factionPending[f2] = true;

@@ -1,12 +1,12 @@
-import { loadTournamentData } from './data.js?v=9';
-import { renderStandings } from './views/standings.js?v=9';
-import { renderConquest } from './views/conquest.js?v=9';
-import { renderRounds } from './views/rounds.js?v=9';
-import { renderPlayer } from './views/player.js?v=9';
-import { renderInfo } from './views/info.js?v=9';
-import { renderFactionStats, renderFactionDetail } from './views/factionStats.js?v=9';
-import { renderHeroStats, renderHeroDetail } from './views/heroStats.js?v=9';
-import { renderMatchupStats } from './views/matchupStats.js?v=9';
+import { loadTournamentData } from './data.js?v=10';
+import { renderStandings } from './views/standings.js?v=10';
+import { renderConquest } from './views/conquest.js?v=10';
+import { renderRounds } from './views/rounds.js?v=10';
+import { renderPlayer } from './views/player.js?v=10';
+import { renderInfo } from './views/info.js?v=10';
+import { renderFactionStats, renderFactionDetail } from './views/factionStats.js?v=10';
+import { renderHeroStats, renderHeroDetail } from './views/heroStats.js?v=10';
+import { renderMatchupStats } from './views/matchupStats.js?v=10';
 
 let data = null;
 let currentTab = 'standings';
