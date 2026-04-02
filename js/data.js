@@ -162,9 +162,9 @@ function computeStandings(players, rounds, heroes, bannedHeroes) {
         mi2.result = 'pending';
       }
 
-      // Track banned hero violations (winning with a banned hero)
-      if (b1 && mi1.result === 'win') p1.bannedHeroViolations.push({ round: round.round, hero: h1, faction: f1 });
-      if (b2 && mi2.result === 'win') p2.bannedHeroViolations.push({ round: round.round, hero: h2, faction: f2 });
+      // Track banned hero violations (any use of a banned hero)
+      if (b1) p1.bannedHeroViolations.push({ round: round.round, hero: h1, faction: f1 });
+      if (b2) p2.bannedHeroViolations.push({ round: round.round, hero: h2, faction: f2 });
 
       p1.matches.push(mi1);
       p2.matches.push(mi2);

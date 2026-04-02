@@ -1,4 +1,4 @@
-import { factionBadge, escapeHtml } from '../ui.js?v=8';
+import { factionBadge, escapeHtml } from '../ui.js?v=9';
 
 const PRIZE_COLORS = ['#ffd700', '#c0c0c0', '#cd7f32', '#cd7f32', '#6a8caf', '#6a8caf',
   '#557788', '#557788', '#557788', '#557788', '#557788'];

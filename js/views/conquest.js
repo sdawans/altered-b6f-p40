@@ -1,4 +1,4 @@
-import { factionBadge, escapeHtml } from '../ui.js?v=8';
+import { factionBadge, escapeHtml } from '../ui.js?v=9';
 
 export function renderConquest(standings, factionList, factions) {
   const factionHeaders = factionList.map(f =>
@@ -66,7 +66,7 @@ export function renderConquest(standings, factionList, factions) {
 
     return `
       <tr style="border-bottom:1px solid #1a1a2e">
-        <td class="conquest player-name" style="color:${nameColor}">${escapeHtml(p.name)}</td>
+        <td class="conquest player-name" style="color:${nameColor}">${escapeHtml(p.name)}${p.bannedHeroViolations.length > 0 ? '<span style="color:#f59e0b;font-size:11px;margin-left:4px" title="Played banned hero">⚠</span>' : ''}</td>
         ${cells}
         <td class="conquest__score" style="color:${scoreColor}" title="${jokers > 0 ? `${conquestCount} conquered + ${jokers} joker(s)` : ''}">${scoreDisplay}</td>
         <td class="conquest__lottery" style="color:${lotteryColor}" title="Unique factions played (6 = lottery bonus)">${uniqueFactions}/6${lotteryBonus}</td>
