@@ -60,7 +60,7 @@
     {
       "player1": { "id": "p26", "hero": "turuun" },
       "player2": { "id": "p31", "hero": "isaree" },
-      "winner": null
+      "winner": "p26"
     },
     {
       "player1": { "id": "p08", "hero": "lindiwe" },
@@ -75,7 +75,7 @@
     {
       "player1": { "id": "p24", "hero": "" },
       "player2": { "id": "p18", "hero": "" },
-      "winner": null
+      "winner": "p18"
     }
   ]
 }
