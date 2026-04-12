@@ -32,7 +32,7 @@ export async function loadTournamentData() {
   // Build set of banned hero IDs
   const bannedHeroes = new Set(tournament.factions.map(f => f.bannedHero.toLowerCase()));
 
-  const standings = computeStandings(players, rounds, heroes, bannedHeroes);
+  const standings = computeStandings(players, rounds, heroes, bannedHeroes, tournament.finalRanking);
   const globalStats = computeGlobalStats(rounds, heroes);
 
   return { tournament, players, rounds, factions, heroes, standings, globalStats };
@@ -53,7 +53,7 @@ function heroFaction(heroId, heroes) {
 
 // ─── STANDINGS COMPUTATION ─────────────────────────────────────
 
-function computeStandings(players, rounds, heroes, bannedHeroes) {
+function computeStandings(players, rounds, heroes, bannedHeroes, finalRanking) {
   const stats = {};
 
   players.forEach(p => {
@@ -181,7 +181,16 @@ function computeStandings(players, rounds, heroes, bannedHeroes) {
     p.resistance = rates.length > 0 ? rates.reduce((a, b) => a + b, 0) / rates.length : 0;
   });
 
-  // Sort: points desc → resistance desc → ELO desc
+  // Sort by official final ranking if available, otherwise points → resistance → ELO
+  if (finalRanking && finalRanking.length > 0) {
+    const rankIndex = {};
+    finalRanking.forEach((id, i) => { rankIndex[id] = i; });
+    return Object.values(stats).sort((a, b) => {
+      const ra = rankIndex[a.id] !== undefined ? rankIndex[a.id] : 9999;
+      const rb = rankIndex[b.id] !== undefined ? rankIndex[b.id] : 9999;
+      return ra - rb;
+    });
+  }
   return Object.values(stats).sort((a, b) =>
     b.points - a.points || b.resistance - a.resistance || b.elo - a.elo
   );

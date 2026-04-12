@@ -49,6 +49,12 @@
     { "rank": "5th-6th", "prize": "2 boosters" },
     { "rank": "7th-11th", "prize": "1 booster" }
   ],
+  "finalRanking": [
+    "p22", "p13", "p28", "p30", "p01", "p17", "p09", "p06",
+    "p14", "p04", "p05", "p03", "p23", "p33", "p29", "p11",
+    "p20", "p19", "p26", "p12", "p25", "p27", "p16", "p02",
+    "p31", "p34", "p15", "p18", "p08", "p24"
+  ],
   "lottery": {
     "prize": "Two custom 3D-printed token boxes (free EU shipping)",
     "ticketsForCompletion": 1,
