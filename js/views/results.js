@@ -192,6 +192,11 @@ export function renderResults(standings, factions, tournament, onSelectPlayer) {
         <span style="color:var(--text-muted)">·</span>
         6 different factions = <strong>${lottery.ticketsForAllFactions} tickets</strong>
       </div>
+
+      <div class="results__thanks">
+        <p>Thank you to all 30 players who made this tournament possible. The Faction Conquest format brought out creative deckbuilding and memorable matchups across all six factions. Well played, everyone.</p>
+        <p style="margin-top:8px;color:var(--text-muted)">— Padawan</p>
+      </div>
     </div>
   `;
 

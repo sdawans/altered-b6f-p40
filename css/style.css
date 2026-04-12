@@ -855,6 +855,16 @@ table { border-collapse: collapse; }
   50% { transform: translateY(-4px); }
 }
 
+.results__thanks {
+  margin-top: 32px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-align: center;
+}
+
 @keyframes lottery-pop {
   0% { transform: scale(0.7); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
