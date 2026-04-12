@@ -52,6 +52,7 @@
   "lottery": {
     "prize": "Two custom 3D-printed token boxes (free EU shipping)",
     "ticketsForCompletion": 1,
-    "ticketsForAllFactions": 3
+    "ticketsForAllFactions": 3,
+    "winners": ["p16", "p02"]
   }
 }

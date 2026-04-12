@@ -731,6 +731,135 @@ table { border-collapse: collapse; }
   font-size: 16px;
 }
 
+.podium__lottery-badge {
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  animation: lottery-glow 2s ease-in-out infinite;
+}
+
+/* ─── LOTTERY WINNERS ──────────────────────────────────────── */
+.lottery-winners {
+  background: linear-gradient(135deg, #1a0a2e 0%, #0a1a2e 50%, #1a0a2e 100%);
+  border: 2px solid #a855f7;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lottery-winners::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, #a855f722 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, #ec489922 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.lottery-winners__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.lottery-winners__icon {
+  font-size: 28px;
+  animation: lottery-bounce 1.5s ease-in-out infinite;
+}
+
+.lottery-winners__title {
+  font-size: 22px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #ec4899, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lottery-winners__prize {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.lottery-winners__cards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.lottery-winner-card {
+  background: linear-gradient(180deg, #2a1a4a 0%, #111122 100%);
+  border: 2px solid #a855f7;
+  border-radius: 12px;
+  padding: 20px 28px;
+  min-width: 180px;
+  cursor: pointer;
+  animation: lottery-pop 0.6s ease-out backwards;
+  transition: transform 0.15s;
+}
+
+.lottery-winner-card:nth-child(2) { animation-delay: 0.3s; }
+
+.lottery-winner-card:hover { transform: scale(1.03); }
+
+.lottery-winner-card__emoji {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.lottery-winner-card__name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #e8e8f0;
+  margin-bottom: 6px;
+}
+
+.lottery-winner-card__tickets {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.lottery-winner-tag {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+  animation: lottery-glow 2s ease-in-out infinite;
+}
+
+.lottery-winner-row {
+  background: #1a0a2e !important;
+}
+
+@keyframes lottery-glow {
+  0%, 100% { box-shadow: 0 0 8px #a855f744; }
+  50% { box-shadow: 0 0 16px #a855f788; }
+}
+
+@keyframes lottery-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes lottery-pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 @media (max-width: 600px) {
   .info-grid { grid-template-columns: 1fr; }
   .header__title { font-size: 26px; }
