@@ -564,11 +564,6 @@ table { border-collapse: collapse; }
   max-width: 700px;
 }
 
-@media (max-width: 600px) {
-  .info-grid { grid-template-columns: 1fr; }
-  .header__title { font-size: 26px; }
-}
-
 .info-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -624,4 +619,121 @@ table { border-collapse: collapse; }
   color: var(--loss);
   font-weight: 600;
   text-decoration: line-through;
+}
+
+/* ─── RESULTS ──────────────────────────────────────────────── */
+.results__title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+
+.results__section {
+  margin-bottom: 36px;
+}
+
+.results__lottery-info {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* ─── PODIUM ───────────────────────────────────────────────── */
+.podium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.podium__row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.podium__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 20px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  min-width: 200px;
+}
+
+.podium__card:hover {
+  background: var(--bg-hover);
+}
+
+.podium__card--1 {
+  border-color: #ffd70066;
+  background: linear-gradient(180deg, #2a2200 0%, var(--bg-card) 100%);
+}
+
+.podium__card--2 {
+  border-color: #c0c0c044;
+  background: linear-gradient(180deg, #1a1a22 0%, var(--bg-card) 100%);
+}
+
+.podium__card--3 {
+  border-color: #cd7f3244;
+  background: linear-gradient(180deg, #1f1508 0%, var(--bg-card) 100%);
+}
+
+.podium__medal {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.podium__name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.podium__stats {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.podium__conquest {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.podium__prize {
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.podium__tickets {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .info-grid { grid-template-columns: 1fr; }
+  .header__title { font-size: 26px; }
+  .podium__row--bottom { flex-direction: column; align-items: center; }
+  .podium__card { min-width: 160px; }
 }

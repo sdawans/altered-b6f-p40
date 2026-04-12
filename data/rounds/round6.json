@@ -1,66 +1,81 @@
 {
   "round": 6,
-  "status": "in_progress",
+  "status": "completed",
   "matches": [
     {
-      "player1": { "id": "p22", "hero": null },
-      "player2": { "id": "p13", "hero": null }
+      "player1": { "id": "p22", "hero": "sierra" },
+      "player2": { "id": "p13", "hero": "turuun" },
+      "winner": "p13"
     },
     {
-      "player1": { "id": "p14", "hero": null },
-      "player2": { "id": "p30", "hero": null }
+      "player1": { "id": "p14", "hero": "teija" },
+      "player2": { "id": "p30", "hero": "moyo" },
+      "winner": "p30"
     },
     {
-      "player1": { "id": "p28", "hero": null },
-      "player2": { "id": "p05", "hero": null }
+      "player1": { "id": "p28", "hero": "sierra" },
+      "player2": { "id": "p05", "hero": "afanas" },
+      "winner": "p28"
     },
     {
-      "player1": { "id": "p01", "hero": null },
-      "player2": { "id": "p09", "hero": null }
+      "player1": { "id": "p01", "hero": "auraq" },
+      "player2": { "id": "p09", "hero": "della" },
+      "winner": "p09"
     },
     {
-      "player1": { "id": "p25", "hero": null },
-      "player2": { "id": "p04", "hero": null }
+      "player1": { "id": "p25", "hero": "subhash" },
+      "player2": { "id": "p04", "hero": "sierra" },
+      "winner": "p04"
     },
     {
-      "player1": { "id": "p03", "hero": null },
-      "player2": { "id": "p17", "hero": null }
+      "player1": { "id": "p03", "hero": "nevenka" },
+      "player2": { "id": "p17", "hero": "zhen" },
+      "winner": "p17"
     },
     {
-      "player1": { "id": "p33", "hero": null },
-      "player2": { "id": "p23", "hero": null }
+      "player1": { "id": "p33", "hero": "afanas" },
+      "player2": { "id": "p23", "hero": "matz" },
+      "winner": "p23"
     },
     {
-      "player1": { "id": "p06", "hero": null },
-      "player2": { "id": "p11", "hero": null }
+      "player1": { "id": "p06", "hero": "nevenka" },
+      "player2": { "id": "p11", "hero": "teija" },
+      "winner": "p06"
     },
     {
-      "player1": { "id": "p19", "hero": null },
-      "player2": { "id": "p16", "hero": null }
+      "player1": { "id": "p19", "hero": "della" },
+      "player2": { "id": "p16", "hero": "moyo" },
+      "winner": "p19"
     },
     {
-      "player1": { "id": "p29", "hero": null },
-      "player2": { "id": "p27", "hero": null }
+      "player1": { "id": "p29", "hero": "nevenka" },
+      "player2": { "id": "p27", "hero": "moyo" },
+      "winner": "p29"
     },
     {
-      "player1": { "id": "p02", "hero": null },
-      "player2": { "id": "p20", "hero": null }
+      "player1": { "id": "p02", "hero": "matz" },
+      "player2": { "id": "p20", "hero": "nadir" },
+      "winner": "p20"
     },
     {
-      "player1": { "id": "p18", "hero": null },
-      "player2": { "id": "p26", "hero": null }
+      "player1": { "id": "p18", "hero": "turuun" },
+      "player2": { "id": "p26", "hero": "matz" },
+      "winner": "p26"
     },
     {
-      "player1": { "id": "p12", "hero": null },
-      "player2": { "id": "p34", "hero": null }
+      "player1": { "id": "p12", "hero": "sol" },
+      "player2": { "id": "p34", "hero": "sol" },
+      "winner": "p12"
     },
     {
       "player1": { "id": "p15", "hero": null },
-      "player2": { "id": "p08", "hero": null }
+      "player2": { "id": "p08", "hero": null },
+      "winner": "p08"
     },
     {
       "player1": { "id": "p31", "hero": null },
-      "player2": { "id": "p24", "hero": null }
+      "player2": { "id": "p24", "hero": null },
+      "winner": "p31"
     }
   ]
 }

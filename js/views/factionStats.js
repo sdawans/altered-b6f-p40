@@ -1,4 +1,4 @@
-import { factionBadge, heroBadge, escapeHtml } from '../ui.js?v=10';
+import { factionBadge, heroBadge, escapeHtml } from '../ui.js?v=11';
 
 export function renderFactionStats(globalStats, factionList, factions, selectFaction) {
   const rows = factionList.map(f => {

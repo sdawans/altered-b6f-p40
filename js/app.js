@@ -1,15 +1,16 @@
-import { loadTournamentData } from './data.js?v=10';
-import { renderStandings } from './views/standings.js?v=10';
-import { renderConquest } from './views/conquest.js?v=10';
-import { renderRounds } from './views/rounds.js?v=10';
-import { renderPlayer } from './views/player.js?v=10';
-import { renderInfo } from './views/info.js?v=10';
-import { renderFactionStats, renderFactionDetail } from './views/factionStats.js?v=10';
-import { renderHeroStats, renderHeroDetail } from './views/heroStats.js?v=10';
-import { renderMatchupStats } from './views/matchupStats.js?v=10';
+import { loadTournamentData } from './data.js?v=11';
+import { renderStandings } from './views/standings.js?v=11';
+import { renderConquest } from './views/conquest.js?v=11';
+import { renderRounds } from './views/rounds.js?v=11';
+import { renderPlayer } from './views/player.js?v=11';
+import { renderInfo } from './views/info.js?v=11';
+import { renderFactionStats, renderFactionDetail } from './views/factionStats.js?v=11';
+import { renderHeroStats, renderHeroDetail } from './views/heroStats.js?v=11';
+import { renderMatchupStats } from './views/matchupStats.js?v=11';
+import { renderResults } from './views/results.js?v=11';
 
 let data = null;
-let currentTab = 'standings';
+let currentTab = 'results';
 let selectedPlayer = null;
 let selectedHero = null;
 let selectedFaction = null;
@@ -49,7 +50,7 @@ function renderHeader() {
     <span>${activePlayers} active players</span>
     <span>•</span>
     <span>Round ${currentRound} / ${t.totalRounds}</span>
-    ${inProgress ? '<span class="header__live">● In Progress</span>' : ''}
+    ${inProgress ? '<span class="header__live">● In Progress</span>' : completedRounds >= t.totalRounds ? '<span style="color:var(--gold)">✦ Completed</span>' : ''}
   `;
   document.getElementById('header-meta').innerHTML = metaHtml;
 }
@@ -118,6 +119,9 @@ function render() {
   document.querySelector('.tabs').style.display = '';
 
   switch (currentTab) {
+    case 'results':
+      renderResults(standings, factions, tournament, selectPlayer);
+      break;
     case 'standings':
       renderStandings(standings, factions, selectPlayer);
       break;

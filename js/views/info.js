@@ -1,4 +1,4 @@
-import { factionBadge } from '../ui.js?v=10';
+import { factionBadge } from '../ui.js?v=11';
 
 export function renderInfo(tournament, factionList) {
   const prizeRows = tournament.prizes.map(p =>
